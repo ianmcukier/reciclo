@@ -17,7 +17,7 @@ module.exports = {
 
     startup : function(app){
         console.log("[MONGOOSE] # CONECTANDO ...");
-        mongoose.connect(PARAMETERS.MONGO.URL,{ useNewUrlParser: true });
+        mongoose.connect(PARAMETERS.MONGO.URL2,{ useNewUrlParser: true });
 
         db.once('open', function() {
             console.log("[MONGOOSE] # CONECTADO AO BANCO");
@@ -30,7 +30,7 @@ module.exports = {
           
             setTimeout(() => {
             console.log("[MONGOOSE] # CONNECTING AGAIN: ");
-              mongoose.connect(PARAMETERS.MONGO.URL);
+              mongoose.connect(PARAMETERS.MONGO.URL2);
             }, 500);
           
           });
@@ -38,7 +38,7 @@ module.exports = {
 
     startupScript : function(){
       console.log("[MONGOOSE] # CONECTANDO ...");
-      mongoose.connect(PARAMETERS.MONGO.URL,{ useNewUrlParser: true });
+      mongoose.connect(PARAMETERS.MONGO.URL2,{ useNewUrlParser: true });
 
       db.once('open', function() {
           console.log("[MONGOOSE] # CONECTADO AO BANCO");
@@ -50,7 +50,7 @@ module.exports = {
         
           setTimeout(() => {
           console.log("[MONGOOSE] # CONNECTING AGAIN: ");
-            mongoose.connect(PARAMETERS.MONGO.URL);
+            mongoose.connect(PARAMETERS.MONGO.URL2);
           }, 500);
         
         });
