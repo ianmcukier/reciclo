@@ -55,7 +55,7 @@ export default {
   },
   {
     img: "https://i.pinimg.com/originals/6d/e1/70/6de17008b1a3a2ba566c0e90fa5b3cec.jpg",
-    title: 'Hamburguerias',
+    title: 'Restaurantes',
     exchange: "25%"
   },
   {
@@ -65,7 +65,7 @@ export default {
   },
   {
     img: "https://images.pexels.com/photos/1128317/pexels-photo-1128317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: 'Evento Culturals',
+    title: 'Evento Culturais',
     exchange: "10%"
   }],
   couponRegistry: {

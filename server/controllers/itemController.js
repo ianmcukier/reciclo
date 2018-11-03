@@ -1,4 +1,5 @@
 const ItemRegistry = require('../models/itemRegistryModel');
+const Item = require('../models/itemModel');
 
 
 const _ITEMREG = {
@@ -19,6 +20,18 @@ const _ITEMREG = {
                     res.send(docs);
                 }
             });
+    },
+
+    getItems: function(req,res){
+        Item.find({},function(err,docs){
+            if(docs.length<1){
+                res.status(404).send({
+                    message: "Nenhum item cadastrado"
+                })
+            }else{
+                res.send(docs);
+            }
+        })
     }
 }
 
