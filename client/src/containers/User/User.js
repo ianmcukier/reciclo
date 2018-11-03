@@ -21,8 +21,8 @@ class User extends Component {
     return (
       <div>
         <Menu title={dados.user} />
-        <Contributions {...dados}/>
         <Rewards/>
+        <Contributions {...dados}/>
       </div>
     );
   }
