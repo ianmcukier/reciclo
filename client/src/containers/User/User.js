@@ -4,17 +4,23 @@ import Contributions from '../../components/Contributions/Contributions';
 import Rewards from '../../components/Rewards/Rewards';
 
 
-const dados = {
-  user: "Helio",
-  peso: 2,
-  lixo: "cocô",
-}
-
 class User extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        dados: {
+          user: "Helio",
+          peso: 2,
+          lixo: "cocô",
+        },
+    };
+  }
+
   render() {
+    const { dados } = this.state;
     return (
       <div>
-        <Menu title="Rodrigo" />
+        <Menu title={dados.user} />
         <Contributions {...dados}/>
         <Rewards/>
       </div>
