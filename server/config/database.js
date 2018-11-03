@@ -34,5 +34,25 @@ module.exports = {
             }, 500);
           
           });
-    }
+    },
+
+    startupScript : function(){
+      console.log("[MONGOOSE] # CONECTANDO ...");
+      mongoose.connect(PARAMETERS.MONGO.URL);
+
+      db.once('open', function() {
+          console.log("[MONGOOSE] # CONECTADO AO BANCO");
+        });
+        
+        db.on('error', (err) =>{
+          console.log("[MONGOOSE] # [CONNECTION ERROR]: ", err);
+          console.log("[MONGOOSE] # RETRYING CONNECTION: ");
+        
+          setTimeout(() => {
+          console.log("[MONGOOSE] # CONNECTING AGAIN: ");
+            mongoose.connect(PARAMETERS.MONGO.URL);
+          }, 500);
+        
+        });
+  }
 }

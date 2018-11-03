@@ -6,7 +6,6 @@ var Schema = mongoose.Schema;
 module.exports = mongoose.model('Item Registry', new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     trade: { type: Schema.Types.ObjectId, ref: 'Trade', required: true },
-    quantity: { type: Number, required: true },
     date: { type: Date, default: Date.now },
     totalPoints: { type: Number, required: true },
     exchange: [{
