@@ -3,6 +3,6 @@ var router = express.Router();
 var userController = require("../controllers/userController")
 
 /* GET users listing. */
-router.get('/', userController.loadMongoTest);
+router.get('/:cpf', userController.getUser);
 
 module.exports = router;

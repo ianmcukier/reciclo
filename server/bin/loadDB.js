@@ -59,11 +59,11 @@ saveMongo(trade1, "trade1");
 // Definindo Coupons
 
 var coupon1 = new Coupon({
-    nome: "Cinemark",
-    codigo: "23eef5",
+    name: "Cinemark",
+    code: "23eef5",
     points: 100,
     exchange: {
-        value: 10,
+        quantity: 10,
     },
     description: "Desconto em qualquer filme",
 })
