@@ -10,7 +10,7 @@ class User extends Component {
     super(props);
     this.state = {
         dados: {
-          user: "Helio",
+          user: "Rubens",
           peso: 2,
           lixo: "cocô",
           contribution: [{
@@ -52,7 +52,7 @@ class User extends Component {
     return (
       <div>
         <Menu
-          title={dados.user}
+          title={`Olá, ${dados.user}`}
           toggleSidebar={this.toggleSidebar}
           sidebarOpen={showSidebar}
           routes={
