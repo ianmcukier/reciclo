@@ -6,7 +6,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-import AddIcon from '@material-ui/icons/AddCircle';
+import StarIcon from '@material-ui/icons/StarBorderOutlined';
+import Typography from '@material-ui/core/Typography';
 
 import Paper from '@material-ui/core/Paper';
 
@@ -25,9 +26,16 @@ const styles = theme => ({
   },
   subtitle: {
     fontSize: '1.5em'
+  },
+  price: {
+    ...theme.typography.button,
+    backgroundColor: theme.palette.common.white,
+    padding: theme.spacing.unit,
+    width: '4.2em',
+    float: 'right',
+    fontSize: '1.4em'
+    
   }
-
-
 });
 
 
@@ -43,12 +51,11 @@ const RewardsGridList = props => {
             <img src={coupon.img} alt={coupon.title} />
             <GridListTileBar
               title={coupon.title}
-              subtitle={<span className={classes.subtitle}>{coupon.exchange} de desconto</span>}
-              actionIcon={
-                <IconButton className={classes.icon}>
-                  <AddIcon />
-                </IconButton>
-              }
+              subtitle={(
+                <React.Fragment>
+                  <span className={classes.subtitle}>{coupon.exchange} de desconto</span>
+                </React.Fragment>
+              )}
             />
           </GridListTile>
         ))}
