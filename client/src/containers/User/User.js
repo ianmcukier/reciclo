@@ -11,6 +11,11 @@ class User extends Component {
           user: "Helio",
           peso: 2,
           lixo: "cocô",
+          coupons: [{
+            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
+            title: 'Starbucks',
+            exchange: "15%"
+          }],
         },
         showSidebar: false,
     };
@@ -43,8 +48,8 @@ class User extends Component {
             }
           }
         />
+        <Rewards coupons={dados.coupons}/>
         <Contributions {...dados}/>
-        <Rewards/>
       </div>
     );
   }
