@@ -14,7 +14,6 @@ class User extends Component {
           user: "Helio",
           peso: 2, 
           lixo: "cocô",
-<<<<<<< HEAD
           contribution: [{
             user: "Helio",
             peso: 2,
@@ -32,14 +31,12 @@ class User extends Component {
             peso: 3,
             lixo: "home wrecker",
             data: "Ago 10, 2018"
-          }]
-=======
+          }],
           coupons: [{
             img: "https://material-ui.com/static/images/grid-list/morning.jpg",
             title: 'Starbucks',
             exchange: "15%"
           }],
->>>>>>> f9fc94045521ace45f8efa935c8909fef276dab7
         },
         showSidebar: false,
     };
@@ -72,15 +69,11 @@ class User extends Component {
             }
           }
         />
-<<<<<<< HEAD
         <Rewards/>
         <Grid container justify="center">
             <ListContributions {...dados}/>
         </Grid>
-=======
         <Rewards coupons={dados.coupons}/>
-        <Contributions {...dados}/>
->>>>>>> f9fc94045521ace45f8efa935c8909fef276dab7
       </div>
     );
   }
