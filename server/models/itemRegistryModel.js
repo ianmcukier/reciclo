@@ -9,6 +9,7 @@ module.exports = mongoose.model('Item Registry', new Schema({
     date: { type: Date, default: Date.now },
     totalPoints: { type: Number, required: true },
     exchange: [{
+        _id:false,
         item: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
         quantity: { type: Number, required: true }
     }]

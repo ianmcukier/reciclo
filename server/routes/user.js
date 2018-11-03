@@ -5,6 +5,10 @@ var userController = require("../controllers/userController")
 /* GET users listing. */
 router.get('/:cpf', userController.getUser);
 router.put('/:cpf/points', userController.putPoints);
+router.get('/:cpf/coupons', userController.getCouponHistory);
+router.get('/:cpf/items', userController.getItemHistory);
+
+
 
 
 module.exports = router;
