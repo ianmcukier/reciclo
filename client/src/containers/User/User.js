@@ -3,14 +3,35 @@ import Menu from '../../components/Menu/Menu';
 import Contributions from '../../components/Contributions/Contributions';
 import Rewards from '../../components/Rewards/Rewards';
 
+import ListContributions from '../../components/ListContributions/ListContributions';
+import { Grid } from '@material-ui/core';
+
 class User extends Component {
   constructor(props) {
     super(props);
     this.state = {
         dados: {
           user: "Helio",
-          peso: 2,
+          peso: 2, 
           lixo: "cocô",
+          contribution: [{
+            user: "Helio",
+            peso: 2,
+            lixo: "cocô",
+            data: "Nov 3, 2018",
+          },
+          {
+            user: "Bibi",
+            peso: 1,
+            lixo: "qué ota",
+            data: "Out 21, 2018"
+          },
+          {
+            user: "Duduxo",
+            peso: 3,
+            lixo: "home wrecker",
+            data: "Ago 10, 2018"
+          }]
         },
         showSidebar: false,
     };
@@ -37,14 +58,16 @@ class User extends Component {
                 {name: 'Desconectar', handler: () => {}},
               ],
               'bottom': [
-                {name: 'Minhas Contibuições', handler: () => {}},
+                {name: 'Minhas Contribuições', handler: () => {}},
                 {name: 'Meus Cupons', handler: () => {}},
                 {name: 'Histórico', handler: () => {}},              ]
             }
           }
         />
-        <Contributions {...dados}/>
         <Rewards/>
+        <Grid container justify="center">
+            <ListContributions {...dados}/>
+        </Grid>
       </div>
     );
   }
