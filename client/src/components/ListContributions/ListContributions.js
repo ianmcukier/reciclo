@@ -5,7 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import Contributions from '../Contributions/Contributions';
-import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = theme => ({
   root: {

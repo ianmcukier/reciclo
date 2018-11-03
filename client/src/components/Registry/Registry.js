@@ -19,6 +19,9 @@ const styles = {
   },
   negative: {
     color: 'red',
+  },
+  positive: {
+    color: 'green',
   }
 };
 
@@ -70,10 +73,17 @@ function SimpleTable(props) {
                 <TableCell>
                   {n.name}
                 </TableCell>
-                <TableCell className={n.type === 'Contribuição' ? null : classes.negative} numeric>
+                <TableCell
+                  className={
+                    n.type === 'Contribuição'
+                      ? classes.positive
+                      : classes.negative
+                  }
+                  numeric
+                >
                   {
                     n.type === 'Contribuição'
-                      ? n.points
+                      ? `+${n.points}`
                       : -1*n.points
                   }
                 </TableCell>

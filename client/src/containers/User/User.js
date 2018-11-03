@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../../components/Menu/Menu';
 import ListContributions from '../../components/ListContributions/ListContributions'
-import Contributions from '../../components/Contributions/Contributions';
 import Rewards from '../../components/Rewards/Rewards';
 import Registry from '../../components/Registry/Registry';
 import Grid from '@material-ui/core/Grid';

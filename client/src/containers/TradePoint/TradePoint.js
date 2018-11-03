@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Menu from '../../components/Menu/Menu';
-import Contributions from '../../components/Contributions/Contributions';
-import Rewards from '../../components/Rewards/Rewards';
 
 class TradePoint extends Component {
   constructor(props) {
