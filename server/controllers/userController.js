@@ -1,19 +1,20 @@
-const Coupon = require('../models/couponRegistryModel');
+const User = require('../models/userModel');
 
 const _USER = {
 
-    loadMongoTest: function(req, res) {
+    getUser: function(req, res) {
+        const cpf = req.params.cpf;
+        User.findOne({cpf:cpf},function(err,docs){
+            if(!docs){
+                res.status(404).send({
+                    message:"CPF não cadastrado"
+                })
+            }else{
+                res.send(docs)
 
-        var testUser = new Coupon({
-            status:"Teste2",
-        });
+            }
+        })
 
-        
-        testUser.save(function (err) {
-            if (err) return res.send(err);
-            res.send('saved!');
-            // saved!
-          });
 
     }
 }
