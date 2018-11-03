@@ -36,9 +36,9 @@ export default {
     exchange: "5%"
   },
   {
-    img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-    title: 'Starbucks',
-    exchange: "15%"
+    img: "https://images.pexels.com/photos/1128317/pexels-photo-1128317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    title: 'Evento Cultural',
+    exchange: "10%"
   }],
   couponRegistry: {
     registry1: {
@@ -59,8 +59,6 @@ export default {
       usageDate: "Oct 15, 2018",
       status: "USED",
     },
-    img: "https://images.pexels.com/photos/1128317/pexels-photo-1128317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: 'Evento Cultural',
-    exchange: "10%"
+   
   }
 };

@@ -23,6 +23,11 @@ const styles = theme => ({
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
+  subtitle: {
+    fontSize: '1.5em'
+  }
+
+
 });
 
 
@@ -38,7 +43,7 @@ const RewardsGridList = props => {
             <img src={coupon.img} alt={coupon.title} />
             <GridListTileBar
               title={coupon.title}
-              subtitle={<span>{coupon.exchange} de desconto</span>}
+              subtitle={<span className={classes.subtitle}>{coupon.exchange} de desconto</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
                   <AddIcon />
