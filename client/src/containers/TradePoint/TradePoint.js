@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import Menu from '../../components/Menu/Menu';
 
+import TradeForm from '../../components/TradeForm/TradeForm';
+
 class TradePoint extends Component {
   constructor(props) {
     super(props);
     this.state = {
         dados: {
           name: "BOTAFOGO II",
+          activeForm: false,
         }
     };
+    this.handleCloseForm = this.handleCloseForm.bind(this);
+    this.handleOpenForm = this.handleOpenForm.bind(this);
     this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
@@ -17,8 +22,20 @@ class TradePoint extends Component {
     this.setState({showSidebar: !showSidebar});
   }
 
+  handleOpenForm() {
+    this.setState({
+      activeForm: true,
+    });
+  }
+
+  handleCloseForm() {
+    this.setState({
+      activeForm: false,
+    });
+  }
+
   render() {
-    const { dados, showSidebar } = this.state;
+    const { dados, showSidebar, activeForm } = this.state;
     return (
       <div>
         <Menu
@@ -32,11 +49,12 @@ class TradePoint extends Component {
                 {name: 'Desconectar', handler: () => {}},
               ],
               'bottom': [
-                {name: 'Registrar Troca', handler: () => {}},
+                {name: 'Registrar Troca', handler: this.handleOpenForm},
               ],
             }
           }
         />
+      <TradeForm activeForm={activeForm} handleCloseForm={this.handleCloseForm} />
       </div>
     );
   }
