@@ -26,19 +26,19 @@ export default {
     exchange: "15%"
   },
   {
-    img: "https://material-ui.com/static/images/grid-list/morning.jpg",
+    img: "https://media-cdn.tripadvisor.com/media/photo-s/03/f2/86/3b/comuna.jpg",
     title: 'Starbucks',
-    exchange: "15%"
+    exchange: "25%"
   },
   {
     img: "https://material-ui.com/static/images/grid-list/morning.jpg",
     title: 'Starbucks',
-    exchange: "15%"
+    exchange: "10%"
   },
   {
     img: "https://material-ui.com/static/images/grid-list/morning.jpg",
     title: 'Starbucks',
-    exchange: "15%"
+    exchange: "5%"
   }
 ],
 };
