@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 module.exports = mongoose.model('Coupon Registry', new Schema({
     coupon: { type: Schema.Types.ObjectId, ref: 'Coupon', required: true },
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    date: { type: Date, default: Date.now },
+    creationDate: { type: Date, default: Date.now },
+    usedDate: {type:Date},
     status : {type:String, enum : ["NEW","USED"], default: "NEW"}
 }, { collection: PARAMETER.MONGO.COLLECTIONS.COUPON_REGISTRY }
 ));
