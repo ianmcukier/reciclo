@@ -22,22 +22,22 @@ export default {
   }],
   coupons: [{
     img: "http://revistaespresso.com.br/wordpress/wp-content/uploads/2017/12/E55_DSC04037.jpg",
-    title: 'Cafeteria',
+    title: 'Cafeterias',
     exchange: "15%"
   },
   {
     img: "https://i.pinimg.com/originals/6d/e1/70/6de17008b1a3a2ba566c0e90fa5b3cec.jpg",
-    title: 'Hamburgueria',
+    title: 'Hamburguerias',
     exchange: "25%"
   },
   {
     img: "https://images.pexels.com/photos/53621/calculator-calculation-insurance-finance-53621.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    title: 'IPTU',
+    title: 'Contas',
     exchange: "5%"
   },
   {
     img: "https://images.pexels.com/photos/1128317/pexels-photo-1128317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: 'Evento Cultural',
+    title: 'Evento Culturals',
     exchange: "10%"
   }],
   couponRegistry: {
@@ -59,6 +59,6 @@ export default {
       usageDate: "Oct 15, 2018",
       status: "USED",
     },
-   
+
   }
 };
