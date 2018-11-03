@@ -22,6 +22,7 @@ class User extends Component {
       <div>
         <Menu title={dados.user} />
         <Rewards/>
+        
         <Contributions {...dados}/>
       </div>
     );
