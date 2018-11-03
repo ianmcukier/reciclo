@@ -4,54 +4,14 @@ import ListContributions from '../../components/ListContributions/ListContributi
 import Rewards from '../../components/Rewards/Rewards';
 import Registry from '../../components/Registry/Registry';
 import Grid from '@material-ui/core/Grid';
+
+import data from '../../fakeApi';
+
 class User extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        dados: {
-          user: "Rubens",
-          peso: 2,
-          lixo: "cocô",
-          contribution: [{
-            user: "Helio",
-            peso: 2,
-            lixo: "cocô",
-            data: "Nov 3, 2018",
-          },
-          {
-            user: "Bibi",
-            peso: 1,
-            lixo: "qué ota",
-            data: "Out 21, 2018"
-          },
-          {
-            user: "Duduxo",
-            peso: 3,
-            lixo: "home wrecker",
-            data: "Ago 10, 2018"
-          }],
-          coupons: [{
-            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-            title: 'Starbucks',
-            exchange: "15%"
-          },
-          {
-            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-            title: 'Starbucks',
-            exchange: "15%"
-          },
-          {
-            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-            title: 'Starbucks',
-            exchange: "15%"
-          },
-          {
-            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-            title: 'Starbucks',
-            exchange: "15%"
-          }
-        ],
-        },
+        dados: data,
         showSidebar: false,
     };
     this.toggleSidebar = this.toggleSidebar.bind(this);
