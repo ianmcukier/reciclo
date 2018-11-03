@@ -18,7 +18,7 @@ const styles = theme => ({
   }
 });
 
-function InsetDividers(props) {
+function ListContributions(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
@@ -56,8 +56,8 @@ function InsetDividers(props) {
   );
 }
 
-InsetDividers.propTypes = {
+ListContributions.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(InsetDividers);
+export default withStyles(styles)(ListContributions);

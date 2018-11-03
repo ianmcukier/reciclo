@@ -39,6 +39,25 @@ export default {
     img: "https://material-ui.com/static/images/grid-list/morning.jpg",
     title: 'Starbucks',
     exchange: "15%"
+  }],
+  couponRegistry: {
+    registry1: {
+      coupon: "Starbucks - Desconto 15%",
+      purchaseDate: "Nov 01, 2018",
+      usageDate: "",
+      status: "NEW",
+    },
+    registry2: {
+      coupon: "Sex Shop - Desconto 45%",
+      purchaseDate: "Oct 13, 2018",
+      usageDate: "Oct 23, 2018",
+      status: "USED",
+    },
+    registry3: {
+      coupon: "Conta de Luz - Desconto 20%",
+      purchaseDate: "Oct 22, 2018",
+      usageDate: "Oct 15, 2018",
+      status: "USED",
+    },
   }
-],
 };

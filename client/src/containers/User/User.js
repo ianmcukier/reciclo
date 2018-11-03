@@ -4,9 +4,8 @@ import ListContributions from '../../components/ListContributions/ListContributi
 import Rewards from '../../components/Rewards/Rewards';
 import Registry from '../../components/Registry/Registry';
 import Grid from '@material-ui/core/Grid';
-
 import data from '../../fakeApi';
-
+import ListCoupons from '../../components/ListCoupons/ListCoupons'
 class User extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +23,7 @@ class User extends Component {
 
   render() {
     const { dados, showSidebar } = this.state;
+    console.log(dados);
     return (
       <div>
         <Menu
@@ -49,6 +49,9 @@ class User extends Component {
         </Grid>
         <Rewards coupons={dados.coupons}/>
         <Registry />
+        <Grid container justify="center">
+            <ListCoupons {...dados.couponRegistry}/>
+        </Grid>
       </div>
     );
   }
