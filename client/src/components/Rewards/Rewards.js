@@ -12,11 +12,11 @@ import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '90%',
     margin: '0 auto',
     justifyContent: 'space-around',
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 2,
+    /* padding: theme.spacing.unit * 2, */
     marginTop: '2em',
     marginBottom: '2em',
   },
@@ -30,7 +30,7 @@ const RewardsGridList = props => {
   const { classes, coupons } = props;
 
   return (
-    <Paper className={classes.root}>
+    <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} />
         {coupons.map(coupon => (
@@ -48,7 +48,7 @@ const RewardsGridList = props => {
           </GridListTile>
         ))}
       </GridList>
-    </Paper>
+    </div>
   );
 }
 
