@@ -21,24 +21,24 @@ export default {
     data: "Ago 10, 2018"
   }],
   coupons: [{
-    img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-    title: 'Starbucks',
+    img: "http://revistaespresso.com.br/wordpress/wp-content/uploads/2017/12/E55_DSC04037.jpg",
+    title: 'Cafeteria',
     exchange: "15%"
   },
   {
-    img: "https://media-cdn.tripadvisor.com/media/photo-s/03/f2/86/3b/comuna.jpg",
-    title: 'Starbucks',
+    img: "https://i.pinimg.com/originals/6d/e1/70/6de17008b1a3a2ba566c0e90fa5b3cec.jpg",
+    title: 'Hamburgueria',
     exchange: "25%"
   },
   {
-    img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-    title: 'Starbucks',
-    exchange: "10%"
+    img: "https://images.pexels.com/photos/53621/calculator-calculation-insurance-finance-53621.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    title: 'IPTU',
+    exchange: "5%"
   },
   {
-    img: "https://material-ui.com/static/images/grid-list/morning.jpg",
-    title: 'Starbucks',
-    exchange: "5%"
+    img: "https://images.pexels.com/photos/1128317/pexels-photo-1128317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    title: 'Evento Cultural',
+    exchange: "10%"
   }
 ],
 };
