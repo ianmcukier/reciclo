@@ -1,8 +1,10 @@
 const User = require('../models/userModel');
 const CouponRegistry = require('../models/couponRegistryModel');
 const ItemRegistry = require('../models/itemRegistryModel');
+const Item = require('../models/itemModel');
 
-var ObjectId = require('mongoose').Types.ObjectId; 
+
+var ObjectId = require('mongoose').Types.ObjectId;
 
 
 
@@ -45,7 +47,7 @@ const _USER = {
                 });
             })
 
-        
+
 
     },
 
@@ -71,7 +73,7 @@ const _USER = {
                 });
             })
 
-        
+
 
     },
 
@@ -102,6 +104,10 @@ const _USER = {
             })
     },
 
+    purchaseCoupon:function(req,res){
+        
+    }
+
 
 };
 
@@ -125,36 +131,45 @@ function queryUser(cpf) {
 function queryCouponRegistry(id) {
     console.log(id)
     return new Promise((resolve, reject) => {
-        CouponRegistry.findOne({ user: id }, function (err, docs) {
-            console.log(err)
-            if (!docs) {
-                reject({
-                    message: "Não coupons registrados",
-                    status: 404
-                })
-            } else {
-                resolve(docs)
+        CouponRegistry.findOne({ user: id })
+            .populate('coupon')
+            .exec(function (err, docs) {
+                console.log(err)
+                if (!docs) {
+                    reject({
+                        message: "Não coupons registrados",
+                        status: 404
+                    })
+                } else {
+                    resolve(docs)
 
-            }
-        })
+                }
+            });
     })
 }
+
 
 function queryItemRegistry(id) {
     console.log(id)
     return new Promise((resolve, reject) => {
-        ItemRegistry.findOne({ user: id }, function (err, docs) {
-            console.log(err)
-            if (!docs) {
-                reject({
-                    message: "Não coupons registrados",
-                    status: 404
-                })
-            } else {
-                resolve(docs)
+        ItemRegistry.findOne({ user: id })
+            .populate({
+                path: 'exchange.item',
+                populate: 'item'
+            })
+            .populate('trade')
+            .exec(function (err, docs) {
+                console.log(err)
+                if (!docs) {
+                    reject({
+                        message: "Não coupons registrados",
+                        status: 404
+                    })
+                } else {
+                    resolve(docs)
 
-            }
-        })
+                }
+            })
     })
 }
 
