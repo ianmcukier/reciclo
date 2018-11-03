@@ -17,7 +17,7 @@ module.exports = {
 
     startup : function(app){
         console.log("[MONGOOSE] # CONECTANDO ...");
-        mongoose.connect(PARAMETERS.MONGO.URL);
+        mongoose.connect(PARAMETERS.MONGO.URL,{ useNewUrlParser: true });
 
         db.once('open', function() {
             console.log("[MONGOOSE] # CONECTADO AO BANCO");
@@ -38,7 +38,7 @@ module.exports = {
 
     startupScript : function(){
       console.log("[MONGOOSE] # CONECTANDO ...");
-      mongoose.connect(PARAMETERS.MONGO.URL);
+      mongoose.connect(PARAMETERS.MONGO.URL,{ useNewUrlParser: true });
 
       db.once('open', function() {
           console.log("[MONGOOSE] # CONECTADO AO BANCO");
