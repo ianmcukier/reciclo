@@ -12,6 +12,29 @@ class User extends Component {
           user: "Helio",
           peso: 2,
           lixo: "cocô",
+          contribution: [{
+            user: "Helio",
+            peso: 2,
+            lixo: "cocô",
+            data: "Nov 3, 2018",
+          },
+          {
+            user: "Bibi",
+            peso: 1,
+            lixo: "qué ota",
+            data: "Out 21, 2018"
+          },
+          {
+            user: "Duduxo",
+            peso: 3,
+            lixo: "home wrecker",
+            data: "Ago 10, 2018"
+          }],
+          coupons: [{
+            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
+            title: 'Starbucks',
+            exchange: "15%"
+          }],
         },
         showSidebar: false,
     };
@@ -38,15 +61,17 @@ class User extends Component {
                 {name: 'Desconectar', handler: () => {}},
               ],
               'bottom': [
-                {name: 'Minhas Contibuições', handler: () => {}},
+                {name: 'Minhas Contribuições', handler: () => {}},
                 {name: 'Meus Cupons', handler: () => {}},
                 {name: 'Histórico', handler: () => {}},              ]
             }
           }
         />
 
-        <Contributions {...dados}/>
-        <Rewards/>
+        <Grid container justify="center">
+            <ListContributions {...dados}/>
+        </Grid>
+        <Rewards coupons={dados.coupons}/>
         <Registry />
       </div>
     );
