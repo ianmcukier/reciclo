@@ -19,34 +19,28 @@ const styles = theme => ({
 });
 
 function ListContributions(props) {
-  const { classes } = props;
+  const { classes, trade, exchange, date} = props;
   return (
     <div className={classes.root}>
     <List>
         <div>
             <ListItem>
-                <Contributions  user = {props.contribution[0].user}
-                                peso = {props.contribution[0].peso}
-                                lixo = {props.contribution[0].lixo}
-                                data = {props.contribution[0].data}
+                <Contributions  name = {trade.name}
+                                quantity = {exchange[0].quantity}
+                                metric = {exchange[0].item.exchange.metric}
+                                type = {exchange[0].item.type}
+                                date = {date}
                                 />
             </ListItem>
             <li>
-            <Divider />
+            <Divider component="li" />
             </li>
             <ListItem>
-            <Contributions  user = {props.contribution[1].user}
-                            peso = {props.contribution[1].peso}
-                            lixo = {props.contribution[1].lixo}
-                            data = {props.contribution[1].data}
-                            />
-            </ListItem>
-            <Divider component="li" />
-            <ListItem>
-            <Contributions  user = {props.contribution[2].user}
-                            peso = {props.contribution[2].peso}
-                            lixo = {props.contribution[2].lixo}
-                            data = {props.contribution[2].data}
+            <Contributions      name = {trade.name}
+                                quantity = {exchange[1].quantity}
+                                metric = {exchange[1].item.exchange.metric}
+                                type = {exchange[1].item.type}
+                                date = {date}
                             />
             </ListItem>
         </div>

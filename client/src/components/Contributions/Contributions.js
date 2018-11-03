@@ -16,12 +16,14 @@ const styles = theme => ({
 
 
 function Contributions(props){
-    const { classes } = props;
+    const { classes,name, metric, quantity, type, date} = props;
+    const months =['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const formatDate = new Date(date);
         return (
             <div className={classes.root}>
                 <ListItemText classes={{secondary: props.classes.secondary}}
-                primary={props.user + " reciclou " + props.peso + "kg de " + props.lixo}
-                secondary={props.data}
+                primary={"Você reciclou " + quantity +" "+ metric + " de lixo " + type}
+                secondary={"Em " + name + " - " + months[formatDate.getMonth()] + " " + formatDate.getDate() + ", "+ formatDate.getFullYear()}
                  />
             </div>
         );

@@ -1,25 +1,53 @@
 export default {
   user: "Rubens",
-  peso: 2,
-  lixo: "cocô",
-  contribution: [{
-    user: "Helio",
-    peso: 2,
-    lixo: "cocô",
-    data: "Nov 3, 2018",
-  },
-  {
-    user: "Bibi",
-    peso: 1,
-    lixo: "qué ota",
-    data: "Out 21, 2018"
-  },
-  {
-    user: "Duduxo",
-    peso: 3,
-    lixo: "home wrecker",
-    data: "Ago 10, 2018"
-  }],
+  contribution:{
+    _id: "5bddac781b126c6f746d2d35",
+    user: "5bddac781b126c6f746d2d30",
+    trade: {
+      address: {
+        street: "Rua da Reciclagem",
+        state: "Rio de Janeiro",
+        city: "RJ",
+        cep: 22222222
+      },
+      _id: "5bddac781b126c6f746d2d33",
+      name: "Botafogo I",
+      email: "reciclo.botafogo@reciclo.com.br",
+      phone: 123456777,
+      __v: 0
+    },
+    totalPoints: 50,
+    exchange: [
+      {
+        item: {
+          exchange: {
+            quantity: 1,
+            metric: "gramas"
+          },
+          _id: "5bddac781b126c6f746d2d31",
+          type: "organico",
+          value: 10,
+          __v: 0
+        },
+        quantity: 3
+      },
+      {
+        item: {
+          exchange: {
+            quantity: 5,
+            metric: "unidades"
+          },
+          _id: "5bddac781b126c6f746d2d32",
+          type: " inorganico",
+          value: 20,
+          __v: 0
+        },
+        quantity: 1
+      }
+    ],
+    date: "2018-11-03T14:11:04.088Z",
+    __v: 0
+   },
   coupons: [{
     img: "http://revistaespresso.com.br/wordpress/wp-content/uploads/2017/12/E55_DSC04037.jpg",
     title: 'Cafeteria',
@@ -42,13 +70,13 @@ export default {
   }],
   couponRegistry: {
     registry1: {
-      coupon: "Starbucks - Desconto 15%",
+      coupon: "Supermercado - Desconto 15%",
       purchaseDate: "Nov 01, 2018",
       usageDate: "",
       status: "NEW",
     },
     registry2: {
-      coupon: "Sex Shop - Desconto 45%",
+      coupon: "Cafeteria- Desconto 45%",
       purchaseDate: "Oct 13, 2018",
       usageDate: "Oct 23, 2018",
       status: "USED",
