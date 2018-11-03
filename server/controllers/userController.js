@@ -1,12 +1,23 @@
+const Coupon = require('../models/couponRegistryModel');
 
-const _CLIENTS = {
+const _USER = {
 
     loadMongoTest: function(req, res) {
 
-        res.send('Tentando carregar mongo')
+        var testUser = new Coupon({
+            status:"Teste2",
+        });
+
+        
+        testUser.save(function (err) {
+            if (err) return res.send(err);
+            res.send('saved!');
+            // saved!
+          });
+
     }
 }
 
 
 
-module.exports = _CLIENTS;
+module.exports = _USER;
