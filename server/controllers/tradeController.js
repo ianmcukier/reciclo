@@ -3,7 +3,6 @@ const Trade = require('../models/tradeModel');
 const _TRADE = {
 
     getAllTrades: function(req, res) {
-        console.log(req.query);
         let query = null
         if(req.query.city!=null){
             query = {

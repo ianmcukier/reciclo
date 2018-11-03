@@ -9,8 +9,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var tradeRouter = require('./routes/trade');
 var couponReg = require('./routes/couponRegistry');
-var itemReg = require('./routes/itemRegestry');
+var itemReg = require('./routes/itemRegistry');
 var couponRouter = require('./routes/coupon');
+var itemRouter = require('./routes/item');
+
 
 var app = express();
 
@@ -32,6 +34,8 @@ app.use('/trade', tradeRouter);
 app.use('/registry/coupon', couponReg);
 app.use('/registry/item', itemReg);
 app.use('/coupon', couponRouter);
+app.use('/item', itemRouter);
+
 
 
 // catch 404 and forward to error handler
