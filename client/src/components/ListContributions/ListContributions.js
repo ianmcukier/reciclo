@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = theme => ({
   root: {
-
+    marginTop: '2em',
     width: '100%',
     maxWidth: 400,
     backgroundColor: theme.palette.background.paper,
@@ -51,7 +51,7 @@ function InsetDividers(props) {
                             />
             </ListItem>
         </div>
-        
+
     </List>
     </div>
   );
