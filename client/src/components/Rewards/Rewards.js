@@ -11,7 +11,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     minWidth: 300,
     width: '80%',
-    margin: '0 auto',
+    margin: '2em auto',
   },
   image: {
     position: 'relative',
