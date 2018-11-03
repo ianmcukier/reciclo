@@ -6,6 +6,9 @@ var Schema = mongoose.Schema;
 module.exports = mongoose.model('Item', new Schema({
     type: { type: String, dropDups: true, index: { unique: true }, required: true },
     value: { type: Number, required: true },
-    metric: { type: String, required: true },
+    exchange: {
+        metric: { type: String, required: true },
+        quantity: { type: Number, default: 1 }
+    }
 }, { collection: PARAMETER.MONGO.COLLECTIONS.ITEMS }
 ));
