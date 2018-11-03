@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var tradeController = require("../controllers/tradeController")
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('trade');
-});
+
+router.get('/', tradeController.getAllTrades);
+router.get('/:name', tradeController.getTrade);
+
 
 module.exports = router;
