@@ -34,7 +34,23 @@ class User extends Component {
             img: "https://material-ui.com/static/images/grid-list/morning.jpg",
             title: 'Starbucks',
             exchange: "15%"
-          }],
+          },
+          {
+            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
+            title: 'Starbucks',
+            exchange: "15%"
+          },
+          {
+            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
+            title: 'Starbucks',
+            exchange: "15%"
+          },
+          {
+            img: "https://material-ui.com/static/images/grid-list/morning.jpg",
+            title: 'Starbucks',
+            exchange: "15%"
+          }
+        ],
         },
         showSidebar: false,
     };

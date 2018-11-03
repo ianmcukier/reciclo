@@ -6,51 +6,33 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
+import AddIcon from '@material-ui/icons/AddCircle';
+
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    width: '50%',
+    margin: '0 auto',
     justifyContent: 'space-around',
-    overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    width: 500,
-    height: 450,
+    padding: theme.spacing.unit * 2,
+    marginTop: '2em',
+    marginBottom: '2em',
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
 });
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tile = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     exchange: 'exchange', # % ou R$ de desconto
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
-function RewardsGridList(props) {
+
+const RewardsGridList = props => {
   const { classes, coupons } = props;
 
   return (
-    <div className={classes.root}>
+    <Paper className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">REWARDS</ListSubheader>
-        </GridListTile>
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} />
         {coupons.map(coupon => (
           <GridListTile key={coupon.img}>
             <img src={coupon.img} alt={coupon.title} />
@@ -59,14 +41,14 @@ function RewardsGridList(props) {
               subtitle={<span>{coupon.exchange} de desconto</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
-                  <InfoIcon />
+                  <AddIcon />
                 </IconButton>
               }
             />
           </GridListTile>
         ))}
       </GridList>
-    </div>
+    </Paper>
   );
 }
 
