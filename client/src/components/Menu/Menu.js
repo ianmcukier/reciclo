@@ -24,7 +24,7 @@ const styles = {
     flexGrow: 1,
   },
   menuColor: {
-    backgroundColor: "#13BB10",
+    backgroundColor: "#13BB10", /* green */
   }
 };
 
