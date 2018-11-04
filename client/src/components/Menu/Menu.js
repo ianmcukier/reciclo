@@ -25,6 +25,9 @@ const styles = {
   grow: {
     flexGrow: 1,
   },
+  menuColor: {
+    backgroundColor: "#13BB10", /* green */
+  }
 };
 
 
@@ -56,7 +59,7 @@ const Menu = ({
 
   return (
     <div className={classes.root}>
-    <AppBar position="static" color="default">
+    <AppBar position="static" className={classes.menuColor}>
       <Toolbar>
         <Typography variant="h6" color="inherit" className={classes.grow}>
           { title }

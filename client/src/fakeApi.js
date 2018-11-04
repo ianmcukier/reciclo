@@ -87,6 +87,19 @@ export default {
       usageDate: "Oct 15, 2018",
       status: "USED",
     },
-
-  }
+  },
+  items : [
+    {
+      type: 'lixo organico',
+      id: 1,
+    },
+    {
+      type: 'eletronico',
+      id: 2,
+    },
+    {
+      type: 'oleo de cozinha',
+      id: 3,
+    }
+  ],
 };
