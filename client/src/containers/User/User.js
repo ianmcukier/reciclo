@@ -12,7 +12,7 @@ class User extends Component {
     this.state = {
         dados: data,
         showSidebar: false,
-        activeRoute: 'rewards',
+        activeRoute: 'Home',
     };
     this.toggleSidebar = this.toggleSidebar.bind(this);
     this.handleRoute = this.handleRoute.bind(this);
@@ -33,34 +33,34 @@ class User extends Component {
     return (
       <div>
         <Menu
-          title={`Olá, ${dados.user}`}
+          title = {activeRoute}
           toggleSidebar={this.toggleSidebar}
           sidebarOpen={showSidebar}
           routes={
             {
               'top': [
-                {name: 'Perfil', handler: () => {this.handleRoute('rewards')}},
+                {name: 'Home', handler: () => {this.handleRoute('Home')}},
                 {name: 'Desconectar', handler: () => {}},
               ],
               'bottom': [
-                {name: 'Minhas Contribuições', handler: () => {this.handleRoute('contributions')}},
-                {name: 'Meus Cupons', handler: () => {this.handleRoute('coupons')}},
-                {name: 'Histórico', handler: () => {this.handleRoute('registry')}},              ]
+                {name: 'Minhas Contribuições', handler: () => {this.handleRoute('Minhas Contribuições')}},
+                {name: 'Meus Cupons', handler: () => {this.handleRoute('Meus Cupons')}},
+                {name: 'Histórico', handler: () => {this.handleRoute('Histórico')}},              ]
             }
           }
         />
-        { activeRoute === 'contributions' ? (
+        { activeRoute === 'Minhas Contribuições' ? (
             <Grid container justify="center">
               <ListContributions {...dados.contribution}/>
             </Grid>
         ) : null}
-        { activeRoute === 'rewards' ? 
+        { activeRoute === 'Home' ? 
           <Rewards coupons={dados.coupons}/> 
           : null}
-        { activeRoute === 'registry' ? 
+        { activeRoute === 'Histórico' ? 
           <Registry />
           : null}
-        { activeRoute === 'coupons' ? 
+        { activeRoute === 'Meus Cupons' ? 
           <Grid container justify="center">
               <ListCoupons {...dados.couponRegistry}/>
           </Grid>

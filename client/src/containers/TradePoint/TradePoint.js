@@ -22,7 +22,6 @@ class TradePoint extends Component {
     this.setState({showSidebar: !showSidebar});
   }
 
-<<<<<<< Updated upstream
   handleOpenForm() {
     this.setState({
       activeForm: true,
@@ -37,15 +36,6 @@ class TradePoint extends Component {
 
   render() {
     const { dados, showSidebar, activeForm } = this.state;
-=======
-  handleRoute(route) {
-    const { activeRoute } = this.state;
-    this.setState({activeRoute: route});
-  }
-
-  render() {
-    const { dados, showSidebar, activeRoute } = this.state;
->>>>>>> Stashed changes
     return (
       <div>
         <Menu
