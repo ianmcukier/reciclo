@@ -32,17 +32,18 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
   },
-  textField: {
+  inputField: {
+    width: '30%',
+    margin: '0 auto',
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
-  },
-  dense: {
-    marginTop: 19,
   },
   menu: {
     width: 200,
   },
+  formArea: {
+    paddingTop: '2em',
+  }
 });
 
 const TradeForm = ({activeForm, handleCloseForm, classes}) => (
@@ -52,49 +53,49 @@ const TradeForm = ({activeForm, handleCloseForm, classes}) => (
             onClose={handleCloseForm}
             aria-labelledby="form-dialog-title"
           >
-            <DialogTitle id="form-dialog-title">Cadastrar Reciclagem</DialogTitle>
+            <DialogTitle id="form-dialog-title">Registrar Reciclagem</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nemo et soluta. Quos deserunt corporis ipsum assumenda delectus error at repellendus iusto repellat, ex animi dignissimos, placeat vel ducimus inventore.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nemo et soluta. Quos deserunt corporis ipsum assumenda.
               </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="CPF"
-                type="number"
-                fullWidth
-              />
+              <div className={classes.formArea}>
                 <TextField
-                  id="standard-select-currency"
+                  autoFocus
+                  id="cpf"
+                  label="CPF"
+                  type="text"
+                  className={classes.inputField}
+                />
+                <TextField
+                  id="item-type"
                   select
-                  label="Select"
-                  className={classes.textField}
-                  value='Selecione um tipo de lixo'
+                  label="Tipo de Lixo"
+                  className={classes.inputField}
                   SelectProps={{
+                    native: true,
                     MenuProps: {
                       className: classes.menu,
                     },
                   }}
-                  helperText="Please select your currency"
                   margin="normal"
                 >
                 {items.map(item => (
-                  <MenuItem key={item.id} value={item.type}>
+                  <option key={item.id} value={item.type}>
                     {item.type}
-                  </MenuItem>
+                  </option>
                 ))}
-              </TextField>
-              <TextField
-                id="standard-number"
-                label="Quantidade"
-                type="number"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                margin="normal"
-              />
+                </TextField>
+                <TextField
+                  id="quantity"
+                  label="Quantidade"
+                  type="number"
+                  className={classes.inputField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                />
+              </div>
             </DialogContent>
             <DialogActions>
               <Button onClick={handleCloseForm} color="primary">
