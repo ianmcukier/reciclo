@@ -80,7 +80,7 @@ const styles = theme => ({
 });
 
 
-const RewardsGridList = ({ classes, coupons }) => {
+const RewardsGridList = ({ classes, coupons, user, contribution }) => {
   return (
     <div className={classes.root}>
     {coupons.map(coupon => (

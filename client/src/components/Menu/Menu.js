@@ -12,10 +12,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-
+import Avatar from '@material-ui/core/Avatar';
 
 import { withStyles } from '@material-ui/core/styles';
-import { generateKeyPairSync } from 'crypto';
 
 const styles = {
   root: {
@@ -51,6 +50,12 @@ const Menu = ({
 
   const sideList = (
     <div className={classes.list}>
+      <List>
+        <ListItem>
+          <Avatar className={classes.orangeAvatar}>R</Avatar>
+          <ListItemText primary="Rubens" />
+        </ListItem>
+      </List>
       {renderList(routes.top)}
       <Divider />
       {renderList(routes.bottom)}

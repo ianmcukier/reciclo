@@ -5,6 +5,9 @@ import Rewards from '../../components/Rewards/Rewards';
 import Registry from '../../components/Registry/Registry';
 import Grid from '@material-ui/core/Grid';
 import ListCoupons from '../../components/ListCoupons/ListCoupons';
+import Greetings from '../../components/Greetings/Greetings'
+import ListItem from '@material-ui/core/ListItem';
+import { List } from '@material-ui/core';
 
 class User extends Component {
   constructor(props) {
@@ -62,7 +65,6 @@ class User extends Component {
 
   render() {
     const {
-      dados,
       showSidebar,
       activeRoute,
       coupons,
@@ -70,6 +72,7 @@ class User extends Component {
       contributions,
       statement,
       couponRegistry,
+      user,
     } = this.state;
     console.log(couponRegistry);
     return (
@@ -123,11 +126,22 @@ class User extends Component {
               <ListContributions {...contributions[0]}/>
             </Grid>
         ) : null}
-        { activeRoute === 'Home' && coupons ?
-          <Rewards coupons={coupons}/>
-          : null}
+        { activeRoute === 'Home' && coupons ? (
+          <div>
+            <List>
+              <ListItem>
+                <Greetings />
+              </ListItem>
+              <ListItem>
+                <Rewards coupons={coupons}
+                        user={user}
+                        contribution={contributions}/>
+              </ListItem>
+            </List>
+          </div>
+        ): null}
         { activeRoute === 'Histórico' && statement ?
-          <Registry statement={statement} />
+          <Registry statement={statement}/>
           : null}
         { activeRoute === 'Meus Cupons' && couponRegistry ?
           <Grid container justify="center">

@@ -19,7 +19,7 @@ const styles = theme => ({
 class ListCoupons extends React.Component {
 
   render() {
-    const { classes, couponRegistry } = this.props;
+    const { couponRegistry } = this.props;
     console.log(this.props);
     return (
         <div>
