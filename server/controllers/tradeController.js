@@ -2,6 +2,7 @@ const Trade = require('../models/tradeModel');
 const Coupon = require('../models/couponModel');
 const ItemRegistry = require('../models/itemRegistryModel');
 const Item = require('../models/itemModel');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 
 const _TRADE = {
@@ -46,7 +47,8 @@ const _TRADE = {
 
         queryTrade(name)
             .then((trade) => {
-                queryItemRegistry(new ObjectId(trade._id)).then(coupReg => {
+                queryItemRegistry(new ObjectId(trade._id))
+                .then(coupReg => {
                     res.send(coupReg)
                 }).catch(err => {
                     if (err.status)

@@ -39,7 +39,7 @@ app.use('/registry/coupon', couponReg);
 app.use('/registry/item', itemReg);
 app.use('/coupon', couponRouter);
 app.use('/item', itemRouter);
-app.use('/couponCategory', couponCategory);
+app.use('/category', couponCategory);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

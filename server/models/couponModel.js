@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 module.exports = mongoose.model('Coupon', new Schema({
     name: { type: String, required: true },
     code: { type: String, dropDups: true, index: { unique: true }, required: true },
+    category: { type: Schema.Types.ObjectId, ref: 'Coupon Type', required: true },
     points: { type: Number, required: true },
     exchange:{
         quantity: { type: Number, required: true },

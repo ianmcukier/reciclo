@@ -10,7 +10,8 @@ const _PARAMETERS = {
             ITEMS:"items",
             ITEM_REGISTRY:"item_registry",
             COUPON: "coupon",
-            COUPON_REGISTRY: "coupon_registry"
+            COUPON_REGISTRY: "coupon_registry",
+            CATEGORIES: "coupon_category"
         },   
     }
 }
