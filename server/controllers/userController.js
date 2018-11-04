@@ -77,31 +77,56 @@ const _USER = {
 
     },
 
-    putPoints: function (req, res) {
+    registerPoints: function (req, res) {
         const cpf = req.params.cpf;
+        const type = req.body.type;
+        const quantity = req.body.amount;
+        Item.findOne({type:type},function(err,item){
+            if(item){
+                let points = item.value * quantity;
+                queryUser(cpf)
+                    .then((user) => {
+                        console.log(user.points + points)
+                        user.points = user.points + points;
+                        user.save((err) => {
+                            if (err) {
+                                res.status(500);
+                                res.send(err);
+                            } else {
+                                var regItem = new ItemRegistry({
+                                    user:user,
+                                    trade:new ObjectId("5bddc767e04ebc10c2d84e40"),
+                                    totalPoints:points,
+                                    exchange:[{
+                                        item:item,
+                                        quantity:quantity
+                                    }]
+                                })
 
-        const points = req.body.value;
-        queryUser(cpf)
-            .then((user) => {
-                console.log(user.points + points)
-                user.points = user.points + points;
-                user.save((err) => {
-                    if (err) {
-                        res.status(500);
-                        res.send(err);
-                    } else {
-                        res.send({
-                            message: "Pontos atualizados"
+                                regItem.save((err) => {
+                                    if (err) {
+                                        res.status(500);
+                                        res.send(err);
+                                    }else{
+                                        res.send({
+                                            message: "Troca realizada",
+                                            points:points
+                                        }) 
+                                    }
+                                });
+                                    
+                            }
                         })
-                    }
-                })
-            }).catch((err) => {
-                if (err.status)
-                    res.status(err.status);
-                res.send({
-                    message: err.message
-                });
-            })
+                    }).catch((err) => {
+                        if (err.status)
+                            res.status(err.status);
+                        res.send({
+                            message: err.message
+                        });
+                    })            
+        }
+
+        })
     },
 
     purchaseCoupon: function (req, res) {
