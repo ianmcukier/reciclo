@@ -4,7 +4,7 @@ var userController = require("../controllers/userController")
 
 /* GET users listing. */
 router.get('/:cpf', userController.getUser);
-router.post('/:cpf/register', userController.registerPoints);
+router.post('/register', userController.registerPoints);
 router.get('/:cpf/coupons', userController.getCouponHistory);
 router.get('/:cpf/items', userController.getItemHistory);
 router.post('/:cpf/purchase', userController.purchaseCoupon);

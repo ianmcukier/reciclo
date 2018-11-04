@@ -78,7 +78,7 @@ const _USER = {
     },
 
     registerPoints: function (req, res) {
-        const cpf = req.params.cpf;
+        const cpf = req.body.cpf;
         const type = req.body.type;
         const quantity = req.body.amount;
         Item.findOne({type:type},function(err,item){
