@@ -1,6 +1,7 @@
 const Coupon = require('../models/couponModel');
 const CouponRegistry = require('../models/couponRegistryModel');
 const CouponCategory = require('../models/couponCategoryModel');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const _COUPON = {
 
@@ -16,18 +17,20 @@ const _COUPON = {
         })
     },
 
-    getCoupons: function(req,res){
-        queryCouponCategory(name)
-            .then((CouponCategory) => {
-                res.send(CouponCategory.coupons)
-            }).catch((err) => {
-                if (err.status) {
-                    res.status(err.status);
-                }
-                res.send({
-                    message: err.message
-                });
-            })
+    getCouponsByCategory: function(req,res){
+        const categoryName = req.params.name;
+        CouponCategory.findOne({name:categoryName},function(err,docs){
+            if(!docs){
+                res.status(404).send({
+                    message:"Categoria inexistente"
+                })
+            }else{
+                Coupon.find({category: new ObjectId(docs._id)},function(err,coupon){
+                    res.send(coupon)
+                })
+            }
+        })
+
     },
 
     getCoupon: function(req,res){
