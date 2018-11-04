@@ -7,7 +7,8 @@ router.get('/:cpf', userController.getUser);
 router.put('/:cpf/points', userController.putPoints);
 router.get('/:cpf/coupons', userController.getCouponHistory);
 router.get('/:cpf/items', userController.getItemHistory);
-
+router.post('/:cpf/purchase', userController.purchaseCoupon);
+router.get('/:cpf/statement', userController.pointsStatement);
 
 
 
