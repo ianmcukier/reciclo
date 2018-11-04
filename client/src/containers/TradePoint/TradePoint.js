@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Menu from '../../components/Menu/Menu';
 
 import TradeForm from '../../components/TradeForm/TradeForm';
+import data from '../../fakeApi';
 
 class TradePoint extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class TradePoint extends Component {
         dados: {
           name: "BOTAFOGO II",
           activeForm: false,
+          ...data,
         }
     };
     this.handleCloseForm = this.handleCloseForm.bind(this);
@@ -45,7 +47,7 @@ class TradePoint extends Component {
           routes={
             {
               'top': [
-                {name: 'Perfil', handler: () => {console.log('perfil')}},
+                {name: 'Histórico', handler: () => {}},
                 {name: 'Desconectar', handler: () => {}},
               ],
               'bottom': [
@@ -54,7 +56,7 @@ class TradePoint extends Component {
             }
           }
         />
-      <TradeForm activeForm={activeForm} handleCloseForm={this.handleCloseForm} />
+      <TradeForm activeForm={activeForm} handleCloseForm={this.handleCloseForm} items={dados} />
       </div>
     );
   }
