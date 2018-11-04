@@ -13,6 +13,7 @@ var itemReg = require('./routes/itemRegistry');
 var couponRouter = require('./routes/coupon');
 var itemRouter = require('./routes/item');
 
+var cors = require('cors');
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors())
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
@@ -54,4 +57,11 @@ app.use(function(err, req, res, next) {
   res.send(res.locals.error);
 });
 
+/* // cors
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+ */
 module.exports = app;
