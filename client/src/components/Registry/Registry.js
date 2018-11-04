@@ -25,29 +25,14 @@ const styles = {
   }
 };
 
-function SimpleTable(props) {
-  const { classes } = props;
 
-  const fakeRegistry = [
-    {
-      type: 'Contribuição',
-      name: 'Botafogo II',
-      date: '10/10/2018',
-      points: 40,
-    },
-    {
-      type: 'Compra de Cupom',
-      name: 'Cinemark',
-      date: '15/10/2018',
-      points: 50,
-    },
-    {
-      type: 'Contribuição',
-      name: 'Botafogo I',
-      date: '01/11/2018',
-      points: 30,
-    },
-  ]
+function formatDate(date) {
+  const d = new Date(date);
+  return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+}
+
+function SimpleTable(props) {
+  const { classes, statement } = props;
 
   return (
     <Paper className={classes.root}>
@@ -55,34 +40,30 @@ function SimpleTable(props) {
         <TableHead>
           <TableRow>
             <TableCell>Data</TableCell>
-            <TableCell>Tipo</TableCell>
             <TableCell>Local</TableCell>
             <TableCell numeric>Pontos</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {fakeRegistry.map(n => {
+          {statement.map(n => {
             return (
               <TableRow key={n.name}>
                 <TableCell component="th" scope="row">
-                  {n.date}
-                </TableCell>
-                <TableCell>
-                  {n.type}
+                  {formatDate(n.date)}
                 </TableCell>
                 <TableCell>
                   {n.name}
                 </TableCell>
                 <TableCell
                   className={
-                    n.type === 'Contribuição'
+                    n.type === 'item'
                       ? classes.positive
                       : classes.negative
                   }
                   numeric
                 >
                   {
-                    n.type === 'Contribuição'
+                    n.type === 'item'
                       ? `+${n.points}`
                       : -1*n.points
                   }

@@ -80,15 +80,13 @@ const styles = theme => ({
 });
 
 
-const RewardsGridList = props => {
-  const { classes, coupons } = props;
-
+const RewardsGridList = ({ classes, coupons }) => {
   return (
     <div className={classes.root}>
     {coupons.map(coupon => (
       <ButtonBase
         focusRipple
-        key={coupon.title}
+        key={coupon.name}
         className={classes.image}
         focusVisibleClassName={classes.focusVisible}
         style={{
