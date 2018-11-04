@@ -15,14 +15,19 @@ import Divider from '@material-ui/core/Divider';
 
 
 import { withStyles } from '@material-ui/core/styles';
+import { generateKeyPairSync } from 'crypto';
 
 const styles = {
   root: {
     flexGrow: 1,
+    backgroundColor: 'green',
   },
   grow: {
     flexGrow: 1,
   },
+  menuColor: {
+    backgroundColor: "#13BB10", /* green */
+  }
 };
 
 
@@ -54,7 +59,7 @@ const Menu = ({
 
   return (
     <div className={classes.root}>
-    <AppBar position="static" color="default">
+    <AppBar position="static" className={classes.menuColor}>
       <Toolbar>
         <Typography variant="h6" color="inherit" className={classes.grow}>
           { title }
