@@ -66,6 +66,43 @@ const _TRADE = {
 
 
     },
+};
+
+function queryTrade(name) {
+    return new Promise((resolve, reject) => {
+        Trade.findOne({ name: name }, function (err, docs) {
+            if (!docs) {
+                reject({
+                    message: "Ponto de troca não encontrado",
+                    status: 404
+                })
+            } else {
+                resolve(docs)
+            }
+        })
+    })
+}
+
+function queryItemRegistry(id) {
+    return new Promise((resolve, reject) => {
+        ItemRegistry.find({ trade: id })
+            .populate({
+                path: 'exchange.item',
+                populate: 'item'
+            })
+            .populate('user')
+            .exec(function (err, docs) {
+                if (!docs) {
+                    reject({
+                        message: "Não coupons registrados",
+                        status: 404
+                    })
+                } else {
+                    resolve(docs)
+
+                }
+            })
+    })
 }
 
 
