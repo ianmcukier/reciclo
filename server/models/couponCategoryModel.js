@@ -7,5 +7,5 @@ module.exports = mongoose.model('Coupon Type', new Schema({
     coupons: [{ type: Schema.Types.ObjectId, ref: 'Coupon' }],
     name: { type: String, dropDups: true, index: { unique: true }, required: true },
     img: { type:String, required: true },
-}, { collection: PARAMETER.MONGO.COLLECTIONS.ITEM_REGISTRY }
+}, { collection: PARAMETER.MONGO.COUPON }
 ));

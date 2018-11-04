@@ -1,4 +1,4 @@
- 
+
 const _PARAMETERS = {
     MONGO:{
         URL:"mongodb://127.0.0.1/reciclo",
@@ -10,8 +10,8 @@ const _PARAMETERS = {
             ITEMS:"items",
             ITEM_REGISTRY:"item_registry",
             COUPON: "coupon",
-            COUPON_REGISTRY: "coupon_registry"
-        },   
+            COUPON_REGISTRY: "coupon_registry",
+        },
     }
 }
 

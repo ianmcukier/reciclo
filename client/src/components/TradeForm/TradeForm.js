@@ -11,21 +11,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import { withStyles } from '@material-ui/core/styles';
 
-const items = [
-  {
-    type: 'lixo organico',
-    id: 1,
-  },
-  {
-    type: 'eletronico',
-    id: 2,
-  },
-  {
-    type: 'oleo de cozinha',
-    id: 3,
-  }
-];
-
 const styles = theme => ({
   container: {
     display: 'flex',
@@ -45,7 +30,14 @@ const styles = theme => ({
   }
 });
 
-const TradeForm = ({activeForm, handleCloseForm, classes}) => (
+const TradeForm = ({
+  items,
+  activeForm,
+  handleCloseForm,
+  classes,
+  handleChange,
+  handleSubmit,
+}) => (
         <div>
           <Dialog
             open={activeForm}
@@ -60,6 +52,7 @@ const TradeForm = ({activeForm, handleCloseForm, classes}) => (
               <div className={classes.formArea}>
                 <TextField
                   autoFocus
+                  onChange={handleChange('cpf')}
                   id="cpf"
                   label="CPF"
                   type="text"
@@ -69,6 +62,7 @@ const TradeForm = ({activeForm, handleCloseForm, classes}) => (
                   id="item-type"
                   select
                   label="Tipo de Lixo"
+                  onChange={handleChange('itemType')}
                   className={classes.inputField}
                   SelectProps={{
                     native: true,
@@ -88,6 +82,7 @@ const TradeForm = ({activeForm, handleCloseForm, classes}) => (
                   id="quantity"
                   label="Quantidade"
                   type="number"
+                  onChange={handleChange('quantity')}
                   className={classes.inputField}
                   InputLabelProps={{
                     shrink: true,
@@ -100,7 +95,7 @@ const TradeForm = ({activeForm, handleCloseForm, classes}) => (
               <Button onClick={handleCloseForm} color="primary">
                 Cancelar
               </Button>
-              <Button onClick={handleCloseForm} color="primary">
+              <Button onClick={handleSubmit} color="primary">
                 Registrar
               </Button>
             </DialogActions>

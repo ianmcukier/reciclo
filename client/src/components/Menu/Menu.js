@@ -36,6 +36,7 @@ const Menu = ({
   toggleSidebar,
   sidebarOpen,
   routes,
+  user,
 }) => {
 
   const renderList = elements => (
@@ -50,12 +51,17 @@ const Menu = ({
 
   const sideList = (
     <div className={classes.list}>
-      <List>
-        <ListItem>
-          <Avatar className={classes.orangeAvatar}>R</Avatar>
-          <ListItemText primary="Rubens" />
-        </ListItem>
-      </List>
+      {
+        user
+        ? (
+        <List>
+          <ListItem>
+            <Avatar className={classes.orangeAvatar}>{user.name.charAt(0).toUpperCase()}</Avatar>
+            <ListItemText primary={user.name} />
+          </ListItem>
+        </List>
+        ) : null
+      }
       {renderList(routes.top)}
       <Divider />
       {renderList(routes.bottom)}

@@ -13,7 +13,10 @@ class User extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        cpf: 111111111,
+        user: {
+          cpf: 111111111,
+          name: '',
+        },
         showSidebar: false,
         activeRoute: 'Home',
     };
@@ -23,8 +26,8 @@ class User extends Component {
   }
 
   componentDidMount() {
-    const { cpf } = this.state;
-    this.fetchData('user', `user/${cpf}`);
+    const { user } = this.state;
+    this.fetchData('user', `user/${user.cpf}`);
     this.fetchData('coupons', 'coupon');
   }
 
@@ -34,7 +37,7 @@ class User extends Component {
   }
 
   fetchData(type, endpoint) {
-    fetch(`http://localhost:8080/${endpoint}`)
+    fetch(`https://reciclo-hackathon.herokuapp.com/${endpoint}`)
     .then((response) => {
       if (response.status === 200) {
         return response.json();
@@ -68,7 +71,6 @@ class User extends Component {
       showSidebar,
       activeRoute,
       coupons,
-      cpf,
       contributions,
       statement,
       couponRegistry,
@@ -78,6 +80,7 @@ class User extends Component {
     return (
       <div>
         <Menu
+          user={user}
           title = {activeRoute}
           toggleSidebar={this.toggleSidebar}
           sidebarOpen={showSidebar}
@@ -99,21 +102,21 @@ class User extends Component {
                 {
                   name: 'Minhas Contribuições',
                   handler: () => {
-                    this.fetchData('contributions', `user/${cpf}/items`);
+                    this.fetchData('contributions', `user/${user.cpf}/items`);
                     this.handleRoute('Minhas Contribuições');
                   }
                 },
                 {
                   name: 'Meus Cupons',
                   handler: () => {
-                    this.fetchData('couponRegistry', `user/${cpf}/coupons`);
+                    this.fetchData('couponRegistry', `user/${user.cpf}/coupons`);
                     this.handleRoute('Meus Cupons');
                     }
                 },
                 {
                   name: 'Histórico',
                   handler: () => {
-                    this.fetchData('statement', `user/${cpf}/statement`);
+                    this.fetchData('statement', `user/${user.cpf}/statement`);
                     this.handleRoute('Histórico');
                   }
                 },

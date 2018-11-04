@@ -2,21 +2,49 @@ import React, { Component } from 'react';
 import Menu from '../../components/Menu/Menu';
 
 import TradeForm from '../../components/TradeForm/TradeForm';
-import data from '../../fakeApi';
 
 class TradePoint extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        dados: {
-          name: "BOTAFOGO II",
-          activeForm: false,
-          ...data,
-        }
+      trade: {
+        name: 'Botafogo I'
+      },
+      itemType: 'inorganico',
+      showSidebar: false,
+      activeForm: false,
     };
     this.handleCloseForm = this.handleCloseForm.bind(this);
     this.handleOpenForm = this.handleOpenForm.bind(this);
     this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentDidMount() {
+    const { trade } = this.state;
+    this.fetchData('trade', `trade/${trade.name}`);
+    this.fetchData('items', `item`);
+  }
+
+  fetchData(type, endpoint) {
+    fetch(`https://reciclo-hackathon.herokuapp.com/${endpoint}`)
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(data => {
+      if (type === 'trade') {
+        this.setState({ trade: data });
+      } else if (type === 'items') {
+        this.setState({ items: data });
+      }
+    })
+    .catch((e) => {
+      console.warn(e);
+    });
   }
 
   toggleSidebar() {
@@ -36,12 +64,35 @@ class TradePoint extends Component {
     });
   }
 
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
+  handleSubmit() {
+    const { cpf, quantity, itemType } = this.state;
+    if (cpf && quantity && itemType) {
+      // valido
+      fetch('https://reciclo-hackathon.herokuapp.com/', {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: {
+         'cpf': cpf,
+         'quantity': quantity,
+         'itemType': itemType,
+        }
+       });
+    } else {
+    }
+  }
+
   render() {
-    const { dados, showSidebar, activeForm } = this.state;
+    const { trade, showSidebar, activeForm, items } = this.state;
     return (
       <div>
         <Menu
-          title={dados.name}
+          title={trade.name}
           toggleSidebar={this.toggleSidebar}
           sidebarOpen={showSidebar}
           routes={
@@ -56,7 +107,13 @@ class TradePoint extends Component {
             }
           }
         />
-      <TradeForm activeForm={activeForm} handleCloseForm={this.handleCloseForm} items={dados} />
+      <TradeForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        activeForm={activeForm}
+        handleCloseForm={this.handleCloseForm}
+        items={items ? items : []}
+      />
       </div>
     );
   }
