@@ -81,7 +81,7 @@ const styles = theme => ({
 
 
 const RewardsGridList = props => {
-  const { classes, coupons } = props;
+  const { classes, coupons, user, contribution} = props;
 
   return (
     <div className={classes.root}>

@@ -12,6 +12,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import deepOrange from '@material-ui/core/colors/deepOrange';
 
 
 import { withStyles } from '@material-ui/core/styles';
@@ -26,7 +28,16 @@ const styles = {
     flexGrow: 1,
   },
   menuColor: {
+<<<<<<< Updated upstream
     backgroundColor: "#3F51B5", /* blue */
+=======
+    backgroundColor: "#13BB10", /* green */
+  },
+  orangeAvatar: {
+    margin: 10,
+    color: '#fff',
+    backgroundColor: deepOrange[500],
+>>>>>>> Stashed changes
   }
 };
 
@@ -51,6 +62,12 @@ const Menu = ({
 
   const sideList = (
     <div className={classes.list}>
+      <List>
+        <ListItem>
+          <Avatar className={classes.orangeAvatar}>R</Avatar>
+          <ListItemText primary="Rubens" />
+        </ListItem>
+      </List>
       {renderList(routes.top)}
       <Divider />
       {renderList(routes.bottom)}

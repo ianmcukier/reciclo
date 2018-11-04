@@ -6,6 +6,11 @@ import Registry from '../../components/Registry/Registry';
 import Grid from '@material-ui/core/Grid';
 import data from '../../fakeApi';
 import ListCoupons from '../../components/ListCoupons/ListCoupons'
+import Greetings from '../../components/Greetings/Greetings'
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import { List } from '@material-ui/core';
+
 class User extends Component {
   constructor(props) {
     super(props);
@@ -54,9 +59,20 @@ class User extends Component {
               <ListContributions {...dados.contribution}/>
             </Grid>
         ) : null}
-        { activeRoute === 'Home' ? 
-          <Rewards coupons={dados.coupons}/> 
-          : null}
+        { activeRoute === 'Home' ? (
+          <div>
+            <List>
+              <ListItem>
+                <Greetings />
+              </ListItem>
+              <ListItem>
+                <Rewards coupons={dados.coupons}
+                        user={dados.user}
+                        contribution={dados.contribution}/> 
+              </ListItem>
+            </List>
+          </div>
+        ): null}
         { activeRoute === 'Histórico' ? 
           <Registry />
           : null}
