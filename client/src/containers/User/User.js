@@ -28,7 +28,7 @@ class User extends Component {
   componentDidMount() {
     const { user } = this.state;
     this.fetchData('user', `user/${user.cpf}`);
-    this.fetchData('coupons', 'coupon');
+    this.fetchData('categories', 'category');
   }
 
   toggleSidebar() {
@@ -53,8 +53,10 @@ class User extends Component {
         this.setState({ contributions: data });
       } else if (type === 'statement') {
         this.setState({ statement: data});
+      } else if (type === 'categories') {
+        this.setState({ categories: data});
       } else if (type === 'couponRegistry') {
-        this.setState({couponRegistry: data});
+        this.setState({ couponRegistry: data})
       }
     })
     .catch((e) => {
@@ -70,7 +72,7 @@ class User extends Component {
     const {
       showSidebar,
       activeRoute,
-      coupons,
+      categories,
       contributions,
       statement,
       couponRegistry,
@@ -126,17 +128,17 @@ class User extends Component {
         />
         { activeRoute === 'Minhas Contribuições' && contributions ? (
             <Grid container justify="center">
-              <ListContributions {...contributions[0]}/>
+              <ListContributions contributions={contributions}/>
             </Grid>
         ) : null}
-        { activeRoute === 'Home' && coupons ? (
+        { activeRoute === 'Home' && categories ? (
           <div>
             <List>
               <ListItem>
-                <Greetings />
+                <Greetings user={user} />
               </ListItem>
               <ListItem>
-                <Rewards coupons={coupons}
+                <Rewards categories={categories}
                         user={user}
                         contribution={contributions}/>
               </ListItem>

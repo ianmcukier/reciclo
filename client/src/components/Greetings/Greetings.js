@@ -1,32 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import deepOrange from '@material-ui/core/colors/deepOrange';
+import Typography from '@material-ui/core/Typography';
 
-const styles = {
-  orangeAvatar: {
-    margin: 10,
-    color: '#fff',
-    backgroundColor: deepOrange[500],
-    size: 100,
+const styles = theme => ({
+  heroContent: {
+    maxWidth: 600,
+    margin: '0 auto',
+    paddingTop: `${theme.spacing.unit * 6}px`,
   },
-  row: {
-    display: 'flex',
-    justifyContent: 'center',
-
-  },
-  list: {
-      align: 'center',
+  points: {
+    fontSize: "1.5em",
+    color: '#3f51b5',
   }
-};
+});
 
 function LetterAvatars(props) {
-  const { classes } = props;
+  const { classes, user } = props;
   return (
-    <div className={classes.list}>
-        <h2>Olá, Rubens!</h2>
-        Troque seus pontos agora por bônus
-        Neste momento você possui 50 pontos!
+    <div className={classes.heroContent}>
+      <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+        Bem vindo, {user.name}!
+      </Typography>
+      <Typography variant="h6" align="center" color="textSecondary" component="p">
+        Você possui <span className={classes.points}>{user.points}</span> pontos. Troque agora seus pontos por cupons!
+      </Typography>
     </div>
   );
 }

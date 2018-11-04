@@ -80,13 +80,13 @@ const styles = theme => ({
 });
 
 
-const RewardsGridList = ({ classes, coupons, user, contribution }) => {
+const RewardsGridList = ({ classes, categories, user, contribution }) => {
   return (
     <div className={classes.root}>
-    {coupons.map(coupon => (
+    {categories.map(category => (
       <ButtonBase
         focusRipple
-        key={coupon.name}
+        key={category.name}
         className={classes.image}
         focusVisibleClassName={classes.focusVisible}
         style={{
@@ -96,7 +96,7 @@ const RewardsGridList = ({ classes, coupons, user, contribution }) => {
         <span
           className={classes.imageSrc}
           style={{
-            backgroundImage: `url(${coupon.img})`,
+            backgroundImage: `url(${category.img})`,
           }}
         />
         <span className={classes.imageBackdrop} />
@@ -107,7 +107,7 @@ const RewardsGridList = ({ classes, coupons, user, contribution }) => {
             color="inherit"
             className={classes.imageTitle}
           >
-            {coupon.title}
+            {category.name}
             <span className={classes.imageMarked} />
           </Typography>
         </span>

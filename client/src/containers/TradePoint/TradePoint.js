@@ -3,6 +3,8 @@ import Menu from '../../components/Menu/Menu';
 
 import TradeForm from '../../components/TradeForm/TradeForm';
 
+import TradeHistory from '../../components/TradeHistory/TradeHistory';
+
 class TradePoint extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +26,7 @@ class TradePoint extends Component {
   componentDidMount() {
     const { trade } = this.state;
     this.fetchData('trade', `trade/${trade.name}`);
+    this.fetchData('tradeHistory', `trade/${trade.name}/items`)
     this.fetchData('items', `item`);
   }
 
@@ -40,6 +43,8 @@ class TradePoint extends Component {
         this.setState({ trade: data });
       } else if (type === 'items') {
         this.setState({ items: data });
+      } else if (type === 'tradeHistory') {
+        this.setState({ tradeHistory: data})
       }
     })
     .catch((e) => {
@@ -74,21 +79,22 @@ class TradePoint extends Component {
     const { cpf, quantity, itemType } = this.state;
     if (cpf && quantity && itemType) {
       // valido
-      fetch('https://reciclo-hackathon.herokuapp.com/', {
+      fetch('https://reciclo-hackathon.herokuapp.com/user/register', {
         method: 'post',
         headers: {'Content-Type':'application/json'},
         body: {
-         'cpf': cpf,
+         'cpf': Number(cpf),
          'quantity': quantity,
          'itemType': itemType,
         }
        });
     } else {
+      console.log('eita');
     }
   }
 
   render() {
-    const { trade, showSidebar, activeForm, items } = this.state;
+    const { trade, showSidebar, activeForm, items, tradeHistory } = this.state;
     return (
       <div>
         <Menu
@@ -107,6 +113,7 @@ class TradePoint extends Component {
             }
           }
         />
+        { tradeHistory ? <TradeHistory history={tradeHistory} /> : null }
       <TradeForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
