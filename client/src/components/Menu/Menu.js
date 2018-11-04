@@ -15,10 +15,12 @@ import Divider from '@material-ui/core/Divider';
 
 
 import { withStyles } from '@material-ui/core/styles';
+import { generateKeyPairSync } from 'crypto';
 
 const styles = {
   root: {
     flexGrow: 1,
+    backgroundColor: 'green',
   },
   grow: {
     flexGrow: 1,
