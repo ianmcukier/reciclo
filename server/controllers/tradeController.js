@@ -1,4 +1,8 @@
 const Trade = require('../models/tradeModel');
+const Coupon = require('../models/couponModel');
+const ItemRegistry = require('../models/itemRegistryModel');
+const Item = require('../models/itemModel');
+
 
 const _TRADE = {
 
@@ -35,7 +39,33 @@ const _TRADE = {
                 res.send(docs);
             }
         })
-    } 
+    },
+
+    getItemHistory: function (req, res) {
+        const name = req.params.name;
+
+        queryTrade(name)
+            .then((trade) => {
+                queryItemRegistry(new ObjectId(trade._id)).then(coupReg => {
+                    res.send(coupReg)
+                }).catch(err => {
+                    if (err.status)
+                        res.status(err.status);
+                    res.send({
+                        message: err.message
+                    });
+                })
+            }).catch((err) => {
+                if (err.status)
+                    res.status(err.status);
+                res.send({
+                    message: err.message
+                });
+            })
+
+
+
+    },
 }
 
 

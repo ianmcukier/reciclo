@@ -12,6 +12,7 @@ var couponReg = require('./routes/couponRegistry');
 var itemReg = require('./routes/itemRegistry');
 var couponRouter = require('./routes/coupon');
 var itemRouter = require('./routes/item');
+var couponCategory = require('./routes/couponCategory');
 
 var cors = require('cors');
 
@@ -38,8 +39,7 @@ app.use('/registry/coupon', couponReg);
 app.use('/registry/item', itemReg);
 app.use('/coupon', couponRouter);
 app.use('/item', itemRouter);
-
-
+app.use('/couponCategory', couponCategory);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
